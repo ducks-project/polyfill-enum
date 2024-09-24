@@ -13,10 +13,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [`UnitEnum`]
 - [`BackedEnum`]
+- [`ReflectionEnum`]
+- [`ReflectionEnumUnitCase`]
+- [`ReflectionEnumBackedCase`]
 
 [Basic enumerations]: https://www.php.net/manual/en/language.enumerations.basics.php
 [Backed enumerations]: https://www.php.net/manual/en/language.enumerations.backed.php
-[UnitEnum]: https://www.php.net/manual/en/class.unitenum.php
-[BackedEnum]: https://www.php.net/manual/en/class.backedenum.php
-[unreleased]: https://github.com/ducks-project/polyfill-enum/compare/v7.0.0...HEAD
+[UnitEnum]: ./assets/documentation/UnitEnum.md
+[BackedEnum]: ./assets/documentation/BackedEnum.md
+[ReflectionEnum]: ./assets/documentation/ReflectionEnum.md
+[ReflectionEnumUnitCase]: ./assets/documentation/ReflectionEnumUnitCase.md
+[ReflectionEnumBackedCase]: ./assets/documentation/ReflectionEnumBackedCase.md
+[unreleased]: https://github.com/ducks-project/polyfill-enum/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/ducks-project/polyfill-enum/releases/tag/v1.0.0
