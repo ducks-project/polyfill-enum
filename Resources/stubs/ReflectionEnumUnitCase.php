@@ -14,8 +14,11 @@ declare(strict_types=1);
 use Ducks\Polyfill\Enum\ReflectionEnumUnitCase as DuckReflectionEnumUnitCase;
 
 if (PHP_VERSION_ID < 80100) {
+    /**
+     * \class_alias(DuckReflectionEnumUnitCase::class, '\\ReflectionEnumUnitCase', true);
+     */
     // phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace
-    interface ReflectionEnumUnitCase extends DuckReflectionEnumUnitCase
+    class ReflectionEnumUnitCase extends DuckReflectionEnumUnitCase
     {
     }
 }

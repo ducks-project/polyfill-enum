@@ -14,8 +14,11 @@ declare(strict_types=1);
 use Ducks\Polyfill\Enum\ReflectionEnum as DuckReflectionEnum;
 
 if (PHP_VERSION_ID < 80100) {
+    /**
+     * \class_alias(DuckReflectionEnum::class, '\\ReflectionEnum', true);
+     */
     // phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace
-    interface ReflectionEnum extends DuckReflectionEnum
+    class ReflectionEnum extends DuckReflectionEnum
     {
     }
 }
