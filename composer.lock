@@ -4,15 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "deda457e0cc2a162f3bc67e92147506f",
+    "content-hash": "21a06ca9d29b6cf0a0e0df96e3ee65d3",
     "packages": [
         {
             "name": "ducks-project/polyfill-enum-subpackage-replace",
-            "version": "1.x-dev",
+            "version": "1.0.0",
             "dist": {
                 "type": "path",
-                "url": "packages/replace",
-                "reference": "678e5e4f36a56575fd02edf17df6de13f1619ff8"
+                "url": "./packages/replace"
             },
             "replace": {
                 "symfony/polyfill-php54": "*",
@@ -36,7 +35,7 @@
                     "role": "Owner"
                 }
             ],
-            "homepage": "https://github.com/ducks-project/spl-types/",
+            "homepage": "https://github.com/ducks-project/polyfill-enum/",
             "support": {
                 "email": "adrien.loyant@gmail.com"
             },
@@ -2590,9 +2589,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "ducks-project/polyfill-enum-subpackage-replace": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
