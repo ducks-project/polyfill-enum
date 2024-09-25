@@ -27,7 +27,7 @@ interface BackedEnum extends UnitEnum
      * Maps a scalar to an enum instance or null
      *
      * @param int|string $value
-     * @return Backend|null A case instance of this enumeration, or null if not found.
+     * @return BackedEnum|null A case instance of this enumeration, or null if not found.
      */
     public static function tryFrom($value): ?self;
 }

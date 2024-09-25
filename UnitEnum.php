@@ -15,5 +15,10 @@ namespace Ducks\Polyfill\Enum;
 
 interface UnitEnum
 {
+    /**
+     * Generates a list of cases on an enum
+     *
+     * @return array
+     */
     public static function cases(): array;
 }
