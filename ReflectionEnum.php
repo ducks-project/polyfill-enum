@@ -15,20 +15,23 @@ namespace Ducks\Polyfill\Enum;
 
 class ReflectionEnum extends \ReflectionClass
 {
+    private static ?\ReflectionNamedType $rnts = null;
+
     /**
      * Internal use
      *
-     * @param \ReflexionClass
+     * Only way to generate a ReflectionNamedType
      *
-     * @return \ReflectionClass|false
+     * @return \ReflectionNamedType
      */
-    private function getBackedEnumParentClass($class)
+    private static function getStringReflectionNamedType(): \ReflectionNamedType
     {
-        while (\is_a($class->name, BackedEnum::class, true)) {
-            $class = $this->getParentClass();
+        if (null === static::$rnts) {
+            $func = new \ReflectionFunction(static fn(string $param): string => $param);
+            static::$rnts = ($func->getParameters()[0])->getType();
         }
 
-        return $class;
+        return static::$rnts;
     }
 
     /**
@@ -61,8 +64,9 @@ class ReflectionEnum extends \ReflectionClass
     public function getBackingType(): ?\ReflectionNamedType
     {
         if ($this->isBacked()) {
-            $parent = $this->getBackedEnumParentClass($this);
-            $type = $parent->getProperty('value')->getType();
+            $type = $this->hasProperty('value')
+                ? $this->getProperty('value')->getType()
+                : $this->getStringReflectionNamedType();
         }
 
         return $type ?? null;
@@ -136,17 +140,12 @@ class ReflectionEnum extends \ReflectionClass
         $type = \gettype($value);
         if (
             ('object' === $type && !\is_a($value, $this->name))
-            || (\is_scalar($value) && \call_user_func('is_' . $this->getBackingType(), $value))
+            || (\is_scalar($value) && !\call_user_func('is_' . $this->getBackingType(), $value))
         ) {
             return false;
         }
 
-        // check by attribute
-        $attribute = $constant->getAttributes(EnumCase::class);
-        if (isset($attribute[0])) {
-            return $attribute[0]->getArguments()[0];
-        }
-
+        // Constant exists, is public and same type as asked.
         return true;
     }
 
