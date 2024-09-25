@@ -18,7 +18,7 @@ interface UnitEnum
     /**
      * Generates a list of cases on an enum
      *
-     * @return array
+     * @return array An array of all defined cases of this enumeration, in order of declaration.
      */
     public static function cases(): array;
 }
