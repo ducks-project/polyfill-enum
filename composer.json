@@ -27,32 +27,27 @@
         "email": "adrien.loyant@gmail.com"
     },
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ducks-project/polyfill-enum-subpackage-replace": "self.version"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.64"
     },
-    "extra": {
-        "replace": {
-            "symfony/polyfill-php54": "*",
-            "symfony/polyfill-php55": "*",
-            "symfony/polyfill-php56": "*",
-            "symfony/polyfill-php70": "*",
-            "symfony/polyfill-php71": "*",
-            "symfony/polyfill-php72": "*",
-            "symfony/polyfill-php73": "*",
-            "symfony/polyfill-php74": "*"
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/replace"
         }
-    },
+    ],
     "autoload": {
         "psr-4": {
             "Ducks\\Polyfill\\Enum\\": ""
         },
-        "files": [
-            "bootstrap.php"
-        ],
         "classmap": [
             "Resources/stubs"
+        ],
+        "files": [
+            "bootstrap.php"
         ]
     }
 }
