@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Ducks\Polyfill\Enum;
 
-/**
- * @property readonly string $name
- */
 interface UnitEnum
 {
     /**

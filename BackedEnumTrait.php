@@ -13,15 +13,12 @@ declare(strict_types=1);
 
 namespace Ducks\Polyfill\Enum;
 
-/**
- * @property readonly string $name
- */
-interface UnitEnum
+trait UnitEnumTrait
 {
     /**
-     * Generates a list of cases on an enum
+     * Value of enum instance
      *
-     * @return array An array of all defined cases of this enumeration, in order of declaration.
+     * @var string|int
      */
-    public static function cases(): array;
+    public $value;
 }

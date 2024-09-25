@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace Ducks\Polyfill\Enum;
 
+/**
+ * @property readonly string|int $value
+ */
 interface BackedEnum extends UnitEnum
 {
     /**
@@ -23,6 +26,7 @@ interface BackedEnum extends UnitEnum
      * @return BackedEnum A case instance of this enumeration.
      */
     public static function from($value): self;
+
     /**
      * Maps a scalar to an enum instance or null
      *
